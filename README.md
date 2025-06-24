@@ -101,11 +101,3 @@ docker-compose up --build
 - For production, consider adding monitoring (Prometheus, Grafana) and error alerting.
 
 ---
-
-## 📄 License
-MIT (or your preferred license)
-
----
-
-## 🙋‍♂️ Need Help?
-Open an issue or contact the maintainer.
