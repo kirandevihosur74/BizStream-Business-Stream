@@ -3,7 +3,7 @@ import logging
 from kafka import KafkaConsumer
 import redis
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 
 consumer = KafkaConsumer(
     'yelp-businesses',
@@ -17,9 +17,11 @@ consumer = KafkaConsumer(
 redis_client = redis.Redis(host='redis', port=6379, db=0)
 
 def process_and_store():
+    logging.info("Starting ETL consumer...")
     for message in consumer:
         try:
             business = message.value
+            logging.info(f"Consumed business from Kafka: {business.get('id', 'unknown')}")
             # Example transformation: normalize name
             business['name'] = business['name'].strip().title()
             redis_client.set(business['id'], json.dumps(business))
