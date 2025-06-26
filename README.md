@@ -1,4 +1,4 @@
-# Verbizz: Business Matchmaker Platform
+# BizStream: Streaming Smart Business Recommendations in Real-Time
 
 A real-time, containerized platform that matches businesses to user preferences using streaming Yelp business data. Built with Kafka, Redis, FastAPI, Streamlit, and Docker Compose.
 
